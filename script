@@ -1,0 +1,16 @@
+#!/bin/bash
+
+search_and_replace() {
+    local directory="$1"
+    local target_name="$2"
+    local new_name="$3"
+
+    find "$directory" -type f \( -name "*.c" -o -name "*.h" \) -exec perl -pi -e "s/$target_name/$new_name/g" {} +
+}
+
+# Usage example
+directory="/Users/husam/ALX/simple_shell"  # Specify the directory to search in
+target_name="index"  # Specify the name to search for
+new_name="idx"  # Specify the new name to replace with
+
+search_and_replace "$directory" "$target_name" "$new_name"
